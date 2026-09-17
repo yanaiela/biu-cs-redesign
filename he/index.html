@@ -275,8 +275,8 @@ table.data.compact td{padding-block:8px}
 table.data.compact td:last-child{font-family:var(--mono);font-size:13px;color:var(--muted);white-space:nowrap}
 table.data.compact td:first-child{color:var(--muted);width:24%}
 .steps{margin:0;padding:0;list-style:none;counter-reset:s;display:grid;gap:0}
-.steps li{counter-increment:s;display:grid;grid-template-columns:36px minmax(0,1fr);gap:14px;padding-block:12px;border-top:1px solid var(--rule)}
-.steps li::before{content:counter(s);width:28px;height:28px;border-radius:50%;border:1px solid var(--accent);color:var(--accent);display:grid;place-items:center;font:500 13px var(--mono)}
+.steps li{counter-increment:s;position:relative;min-height:52px;padding:12px 0 12px 50px;border-top:1px solid var(--rule)}
+.steps li::before{content:counter(s);position:absolute;left:0;top:10px;width:28px;height:28px;border-radius:50%;border:1px solid var(--accent);color:var(--accent);display:grid;place-items:center;font:500 13px var(--mono)}
 .steps li b{font-weight:600}
 .checks{margin:0;padding:0;list-style:none;display:grid;gap:8px}
 .checks li{position:relative;padding-left:26px}
@@ -416,6 +416,8 @@ table.data th,table.data td{text-align:right}
 .toc a.on{border-right-color:var(--accent)}
 .checks li{padding-left:0;padding-right:26px}
 .checks li::before{left:auto;right:3px}
+.steps li{padding:12px 50px 12px 0}
+.steps li::before{left:auto;right:0}
 .facts div{padding:16px 0 16px 20px}
 .facts div+div{padding-left:20px;padding-right:20px;border-left:0;border-right:1px solid var(--rule)}
 blockquote.pull{border-left:0;border-right:3px solid var(--accent);padding:4px 20px 4px 0}
