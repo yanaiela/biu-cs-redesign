@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="A redesign mockup of the Bar-Ilan University Department of Computer Science and AI website.">
 <title>BIU Computer Science</title>
+<link rel="alternate" hreflang="en" href="./">
+<link rel="alternate" hreflang="he" href="he/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,650&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -64,6 +66,7 @@ nav.main{margin-inline-start:auto;display:flex;gap:2px}
 .tools{display:flex;gap:8px;align-items:center}
 .icon-btn{border:1px solid var(--rule);background:var(--surface);color:var(--ink);height:36px;min-width:36px;padding:0 10px;border-radius:8px;font:500 13px var(--body);cursor:pointer;display:inline-flex;align-items:center;gap:6px}
 .menu-btn{display:none}
+.nav-lang{display:none;padding:12px 12px 4px;margin-top:4px;border-top:1px solid var(--rule);font-weight:500;font-size:15px}
 @media (max-width:920px){
   nav.main{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:var(--surface);border-bottom:1px solid var(--rule);padding:8px 16px 16px;max-height:calc(100vh - 64px - env(safe-area-inset-top,0px));max-height:calc(100dvh - 64px - env(safe-area-inset-top,0px));overflow-y:auto;overscroll-behavior:contain}
   nav.main.open{display:flex}
@@ -397,7 +400,7 @@ h3.with-face img{width:44px;height:44px;border-radius:50%;object-fit:cover;flex:
 .forum-head{background:#fff;border:1px solid var(--rule);border-radius:10px;padding:14px 18px;width:fit-content;max-width:100%}
 .forum-head img{height:52px;width:auto;display:block}
 .page-head .pbadge.lg+.label{display:block}
-@media (max-width:480px){.bar{gap:12px}.brand{font-size:15px}.brand small{font-size:10.5px}#lang-btn{display:none}}
+@media (max-width:480px){.bar{gap:12px}.brand{font-size:15px}.brand small{font-size:10.5px}#lang-btn{display:none}.nav-lang{display:block}}
 
 </style>
 </head>
@@ -461,10 +464,11 @@ h3.with-face img{width:44px;height:44px;border-radius:50%;object-fit:cover;flex:
           <a href="#/contact">Contact &amp; location</a>
         </div>
       </div>
+      <a class="nav-lang" href="he/" lang="he" hreflang="he" data-lang-link>עברית</a>
     </nav>
     <div class="tools">
       <button class="icon-btn" type="button" id="search-btn" aria-label="Search faculty">⌕ <span class="search-txt">Search</span></button>
-      <a class="icon-btn" id="lang-btn" href="https://cs.biu.ac.il/" lang="he" hreflang="he" aria-label="עברית – האתר בעברית">עברית</a>
+      <a class="icon-btn" id="lang-btn" href="he/" data-lang-link lang="he" hreflang="he" aria-label="עברית – האתר בעברית">עברית</a>
       <button class="icon-btn menu-btn" type="button" id="menu-btn" aria-controls="nav" aria-expanded="false">Menu</button>
     </div>
   </div>
@@ -1439,6 +1443,10 @@ document.getElementById('search-btn').addEventListener('click',()=>{
   if(!location.hash.startsWith('#/faculty')||location.hash.startsWith('#/faculty/')){history.pushState(null,'','#/faculty');route()}
   const input=document.getElementById('fac-search');input.focus();input.select();
 });
+// Point the language switch at the same page in the other language.
+const langLinks=[...document.querySelectorAll('[data-lang-link]')].map(a=>[a,a.getAttribute('href')]);
+const syncLang=()=>{for(const [a,base] of langLinks)a.href=base+location.hash};
+langLinks.forEach(([a])=>a.addEventListener('click',syncLang));window.addEventListener('hashchange',syncLang);syncLang();
 </script>
 
 </body>
