@@ -65,7 +65,7 @@ nav.main{margin-inline-start:auto;display:flex;gap:2px}
 .icon-btn{border:1px solid var(--rule);background:var(--surface);color:var(--ink);height:36px;min-width:36px;padding:0 10px;border-radius:8px;font:500 13px var(--body);cursor:pointer;display:inline-flex;align-items:center;gap:6px}
 .menu-btn{display:none}
 @media (max-width:920px){
-  nav.main{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:var(--surface);border-bottom:1px solid var(--rule);padding:8px 16px 16px}
+  nav.main{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:var(--surface);border-bottom:1px solid var(--rule);padding:8px 16px 16px;max-height:calc(100vh - 64px - env(safe-area-inset-top,0px));max-height:calc(100dvh - 64px - env(safe-area-inset-top,0px));overflow-y:auto;overscroll-behavior:contain}
   nav.main.open{display:flex}
   .drop{position:static;display:grid;border:0;box-shadow:none;padding:0 0 8px 12px;margin:0;min-width:0;background:transparent}
   .drop a span{display:none}
@@ -463,8 +463,8 @@ h3.with-face img{width:44px;height:44px;border-radius:50%;object-fit:cover;flex:
       </div>
     </nav>
     <div class="tools">
-      <button class="icon-btn" type="button" id="search-btn" aria-label="Search">⌕ <span class="search-txt">Search</span></button>
-      <button class="icon-btn" type="button" id="lang-btn" lang="he">עברית</button>
+      <button class="icon-btn" type="button" id="search-btn" aria-label="Search faculty">⌕ <span class="search-txt">Search</span></button>
+      <a class="icon-btn" id="lang-btn" href="https://cs.biu.ac.il/" lang="he" hreflang="he" aria-label="עברית – האתר בעברית">עברית</a>
       <button class="icon-btn menu-btn" type="button" id="menu-btn" aria-controls="nav" aria-expanded="false">Menu</button>
     </div>
   </div>
@@ -1293,7 +1293,7 @@ let state={area:'',q:''};
 function personRow(p){return `<a class="person" href="#/faculty/${p.slug}">${avatar(p,'sm')}<span><b>${esc(fullName(p))}</b><span class="tl">${esc(p.tagline||'Profile coming soon')}</span></span></a>`}
 function renderDirectoryShell(){
   const leaders=FACULTY.filter(p=>p.role).sort((a,b)=>a.role.length-b.role.length);
-  const counts=Object.keys(AREA).map(k=>[k,active.filter(p=>p.areas.includes(k)).length]);
+  const counts=Object.keys(AREA).map(k=>[k,FACULTY.filter(p=>p.areas.includes(k)).length]);
   views.dir.innerHTML=`<div class="wrap page">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="#/">Home</a><span>/</span><span>People</span><span>/</span><span aria-current="page">Faculty</span></nav>
     <div class="page-head"><div><span class="label">People</span><h1>Faculty</h1><p>${active.length} faculty members and ${emeriti.length} emeriti working across AI, theory, security and systems.</p></div>
@@ -1301,7 +1301,7 @@ function renderDirectoryShell(){
     <div class="toolbar">
       <input class="search" id="fac-search" type="search" placeholder="Search by name or research topic" aria-label="Search faculty">
       <div class="chips" role="group" aria-label="Filter by research area">
-        <button class="chip" type="button" data-area="">All <small>${active.length}</small></button>
+        <button class="chip" type="button" data-area="">All <small>${FACULTY.length}</small></button>
         ${counts.map(([k,n])=>`<button class="chip" type="button" data-area="${k}">${esc(AREA[k])} <small>${n}</small></button>`).join('')}
       </div>
     </div>
@@ -1387,27 +1387,33 @@ function setCurrentNav(path){
   const sec=path.startsWith('/faculty')||path.startsWith('/people')?'people':path==='/contact'?'about':path.split('/')[1];
   document.querySelectorAll('.nav-item').forEach(n=>n.classList.toggle('current',n.dataset.section===sec));
 }
-let lastPage='';
+let lastPage='',dirScroll=0;
 function route(){
   const raw=(location.hash||'#/').slice(1)||'/';
   const [path,query]=raw.split('?');
   setCurrentNav(path);
+  if(lastPage==='/faculty')dirScroll=window.scrollY;
   if(path.startsWith('/faculty/')){
     const p=bySlug[path.slice(9)];
     if(p){renderProfile(p);show('prof');window.scrollTo(0,0);lastPage=path;return}
   }
   if(path==='/faculty'){
-    const area=new URLSearchParams(query||'').get('area')||'';
-    const fresh=lastPage!=='/faculty';
+    const param=new URLSearchParams(query||'').get('area')||'', area=AREA[param]?param:'';
+    // Coming back from a profile to the same filter: return to where the reader was in the list.
+    const restore=lastPage.startsWith('/faculty/')&&area===state.area;
+    const stay=lastPage==='/faculty';
     if(!views.dir.firstChild)renderDirectoryShell();
-    state.area=AREA[area]?area:'';renderResults();
-    document.title=`Faculty · ${SITE}`;show('dir');if(fresh)window.scrollTo(0,0);lastPage=path;return;
+    state.area=area;renderResults();
+    document.title=`Faculty · ${SITE}`;show('dir');
+    if(!stay)window.scrollTo(0,restore?dirScroll:0);
+    lastPage=path;return;
   }
   if(path==='/'||path===''){document.title=SITE;show('home');window.scrollTo(0,0);lastPage='/';return}
   const id=p=>'tpl'+p.replace(/\/$/,'').replaceAll('/','-');
   let base=path.replace(/\/$/,''),anchor='';
   if(!document.getElementById(id(base))){const k=base.lastIndexOf('/');anchor=base.slice(k+1);base=base.slice(0,k)}
-  if(!document.getElementById(id(base))){renderPage('tpl-404','');show('page');window.scrollTo(0,0);lastPage='';return}
+  const tpl=base&&document.getElementById(id(base));
+  if(!tpl||(anchor&&!tpl.content.getElementById(anchor))){renderPage('tpl-404','');show('page');window.scrollTo(0,0);lastPage='';return}
   if(lastPage!==base)renderPage(id(base),base);
   show('page');lastPage=base;
   const target=anchor&&views.page.querySelector('#'+CSS.escape(anchor));
@@ -1421,7 +1427,18 @@ window.addEventListener('hashchange',route);route();
 
 const btn=document.getElementById('menu-btn'),nav=document.getElementById('nav');
 btn.addEventListener('click',()=>{const o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o);btn.textContent=o?'Close':'Menu'});
-nav.addEventListener('click',e=>{if(e.target.closest('a')){nav.classList.remove('open');btn.setAttribute('aria-expanded','false');btn.textContent='Menu';e.target.closest('a').blur()}});
+const closeMenu=()=>{nav.classList.remove('open');btn.setAttribute('aria-expanded','false');btn.textContent='Menu'};
+nav.addEventListener('click',e=>{if(e.target.closest('a')){closeMenu();e.target.closest('a').blur()}});
+// A link to the hash we're already on fires no hashchange, so re-run the router (e.g. jump back to a TOC section).
+document.addEventListener('click',e=>{
+  const a=e.target.closest('a[href^="#/"]');
+  if(a&&!e.defaultPrevented&&!e.metaKey&&!e.ctrlKey&&!e.shiftKey&&a.getAttribute('href')===location.hash){e.preventDefault();route()}
+});
+document.getElementById('search-btn').addEventListener('click',()=>{
+  closeMenu();
+  if(!location.hash.startsWith('#/faculty')||location.hash.startsWith('#/faculty/')){history.pushState(null,'','#/faculty');route()}
+  const input=document.getElementById('fac-search');input.focus();input.select();
+});
 </script>
 
 </body>
