@@ -325,6 +325,8 @@ blockquote.pull footer{font-size:14px;color:var(--muted)}
 .lab{display:grid;gap:12px;padding-block:24px;border-top:1px solid var(--rule)}
 .lab:first-of-type{border-top:0;padding-top:4px}
 .lab h3{margin-top:0;font-size:20px}
+.sublab{display:grid;gap:12px;scroll-margin-top:90px}
+.sublab h4{font:600 16px var(--body);margin:10px 0 0}
 .members{display:flex;flex-wrap:wrap;gap:8px}
 .members a{display:inline-flex;align-items:center;gap:8px;padding:4px 12px 4px 4px;border:1px solid var(--rule);border-radius:999px;background:var(--surface);font-size:13.5px;font-weight:500}
 .members a:hover{border-color:var(--accent);color:var(--accent)}
@@ -1234,59 +1236,93 @@ blockquote.pull{border-left:0;border-right:3px solid var(--accent);padding:4px 2
 
 <!-- ================= RESEARCH ================= -->
 <template id="tpl-research">
-<div class="wrap page" data-reviewed="2026-09-17">
+<div class="wrap page" data-reviewed="2026-09-19">
   <nav class="crumbs" aria-label="פירורי לחם"><a href="#/">דף הבית</a><span>/</span><span aria-current="page">מחקר</span></nav>
   <div class="page-head"><div><span class="label">מחקר</span><h1>מחקר</h1><p>בית לקבוצת הבינה המלאכותית הגדולה בישראל, לקבוצת התאמת תבניות בעלת עשרות שנות הישגים, ולמחקר המדורג במקום הראשון בעיבוד שפה ובאבטחה.</p></div></div>
   <figure class="banner"><img src="../images/photos/colloquium.jpg" alt="אולם הרצאות מלא באירוע של המחלקה" loading="lazy"></figure>
   <div class="doc"><aside class="toc"></aside><div class="doc-body">
     <section><h2 id="areas">תחומי מחקר</h2>
-      <p class="muted">כל תחום מוביל לחברי הסגל שעוסקים בו. המעבדות והקבוצות מופיעות מתחת.</p>
+      <p class="muted">כל תחום מוביל לחברי הסגל שעוסקים בו. בפרק מעבדות וקבוצות שמתחת יש הרחבה על כל אחד מהם.</p>
       <div data-areas></div>
     </section>
     <section><h2 id="labs">מעבדות וקבוצות</h2>
-      <article class="lab" id="algorithms"><h3>אלגוריתמים והתאמת תבניות</h3>
-        <p>התאמת תבניות העניקה למדעי המחשב כמה מהאלגוריתמים הוותיקים שלהם (Knuth-Morris-Pratt) וממבני הנתונים שלהם (עצי trie ועצי סיומות), והתפתחה לתחומים עצמאיים כמו ביולוגיה חישובית. הקבוצה שלנו נמצאת בחזית התחום כבר עשרות שנים. קידמנו התאמה רב־ממדית, היינו חלוצים בהתאמה דחוסה, הצגנו את מודל השחזור ופיתחנו התאמת תבניות בזרם נתונים. היום אנחנו עובדים על התאמה בטקסט שמשתנה באופן דינמי. מהקבוצה יצאו יותר מ־25 בוגרי דוקטורט.</p>
-        <p class="members" data-slugs="amihood-amir,yonatan-aumann,shmuel-tomi-klein,liam-roditty,avinatan-hassidim,ely-porat,tsvi-kopelowitz,moshe-lewenstein,esther-ezra"></p>
-      </article>
-      <article class="lab" id="multi-agent"><h3>מערכות מרובות סוכנים ומרובות רובוטים</h3>
-        <p>קבוצת הבינה המלאכותית הגדולה בישראל, המוכרת בעולם בזכות שני עשורים של הישגים, עם 11 חברי סגל בכיר ועשרות סטודנטים לתארים מתקדמים, פוסט־דוקטורנטים ומהנדסים.</p>
+      <p class="muted">התחומים שלמעלה, בהרחבה. למידת מכונה, עיבוד שפה טבעית ורובוטיקה מקובצים תחת בינה מלאכותית.</p>
+      <article class="lab" id="theory"><h3>אלגוריתמים ותאוריה</h3>
+        <p>מהקבוצות הוותיקות והגדולות במחלקה. הקבוצה מתכננת אלגוריתמים ומבני נתונים יעילים, וחוקרת את הגבולות המתמטיים של החישוב.</p>
         <ul class="kv">
-          <li><b>מערכות מרובות רובוטים</b><span>אגמון חוקרת התנהגות אסטרטגית של רובוטים בסביבות עוינות. קמינקא חוקר עבודת צוות כמנגנונים כלליים שאפשר להפוך לאוטומטיים, והקים את סדנת ARMS בכנס AAMAS.</span></li>
-          <li><b>חלוקה הוגנת</b><span>אומן ושותפיו הרחיבו את ״חלוקת העוגה״ לשני ממדים, ופיתחו את הפרוטוקולים היעילים הראשונים לחלוקה הוגנת של קרקע.</span></li>
-          <li><b>מעבדת AIM</b><span>קראוס עוסקת במשא ומתן, בתכנון שיתופי ובאינטראקציה בין אדם לסוכן, ובהם מטפלים וירטואליים, אימון לחקירות עבור רשויות אכיפת החוק ומערכות ייעוץ לנהגים.</span></li>
-          <li><b>תכנון שווקים</b><span>חסידים בונה מנגנונים אלגוריתמיים שפועלים בשווקים אמיתיים: שיבוץ לסטאז׳ ברפואה, קבלה ללימודי פסיכולוגיה ובחירת בתי ספר ברמה הלאומית.</span></li>
-          <li><b>מידע וייעוץ</b><span>שרנא חוקר כיצד מתווכי מידע מעצבים סביבות מרובות סוכנים, ואיך לתת לאנשים עצות נבונות.</span></li>
+          <li><b>התאמת תבניות</b><span>התאמת תבניות העניקה למדעי המחשב כמה מהאלגוריתמים הוותיקים שלהם (Knuth-Morris-Pratt) וממבני הנתונים שלהם (עצי trie ועצי סיומות). הקבוצה שלנו נמצאת בחזית התחום כבר עשרות שנים: היא קידמה התאמה רב־ממדית, הייתה חלוצה בהתאמה דחוסה, הציגה את מודל השחזור ופיתחה התאמת תבניות בזרם נתונים. היום היא עובדת על התאמה בטקסט שמשתנה באופן דינמי, ויצאו ממנה יותר מ־25 בוגרי דוקטורט.</span></li>
+          <li><b>אלגוריתמים דינמיים ואלגוריתמים לגרפים</b><span>רודיטי ולוינשטיין מתכננים אלגוריתמים ומבני נתונים שנשארים מהירים כשהגרפים והקלט משתנים. עדן מפתחת אלגוריתמים תת־ליניאריים ובדיקת תכונות, שעונים על שאלות על גרפים ענקיים תוך קריאה של חלק קטן מהם בלבד.</span></li>
+          <li><b>גאומטריה</b><span>עזרא עוסקת בגאומטריה חישובית ובדידה, באלגוריתמי קירוב גאומטריים ובאי־התאמה (discrepancy). פילצר חוקר מרחבים מטריים וסיכום גאומטרי של נתונים.</span></li>
+          <li><b>סיבוכיות וקודים</b><span>קאופמן חוקרת מרחיבים רב־ממדיים וקודים לתיקון שגיאות. פורת עוסק בניתוח אלגוריתמים ובסיבוכיות חישובית.</span></li>
+          <li><b>תורת משחקים אלגוריתמית</b><span>אומן ושותפיו הרחיבו את ״חלוקת העוגה״ לשני ממדים, ופיתחו את הפרוטוקולים היעילים הראשונים לחלוקה הוגנת של קרקע. חסידים בונה מנגנונים אלגוריתמיים שפועלים בשווקים אמיתיים: שיבוץ לסטאז׳ ברפואה, קבלה ללימודי פסיכולוגיה ובחירת בתי ספר ברמה הלאומית.</span></li>
         </ul>
-        <p class="members" data-slugs="sarit-kraus,gal-kaminka,noa-agmon,david-sarne,yonatan-aumann,avinatan-hassidim"></p>
+        <p class="members" data-in-areas="Theory" data-slugs="amihood-amir,shmuel-tomi-klein"></p>
       </article>
-      <article class="lab" id="robotics"><h3>קונסורציום הרובוטיקה של בר־אילן</h3>
-        <p>מקבוצות המחקר הגדולות בישראל במדעי המחשב. הקבוצה חוקרת טכנולוגיות רובוטיות למשימות תעשייתיות וחברתיות, ובהן רובוטיקה לאבטחה, מערכות מרובות רובוטים, מידול קוגניטיבי וכדורגל רובוטים (RoboCup), ועובדת בשיתוף הדוק עם הממשלה והתעשייה כדי להטמיע אותן. ראו גם את <a class="inline" href="#/news/robots">פרויקט כלב הנחייה הרובוטי</a>. <a class="inline" href="https://u.cs.biu.ac.il/~kaminkg/" target="_blank" rel="noopener">אתר הקונסורציום ↗</a></p>
-        <div class="pair"><figure><img src="../images/photos/golda.jpg" alt="גולדה, רובוט Spot צהוב של Boston Dynamics" loading="lazy"><figcaption>גולדה, רובוט Spot של Boston Dynamics</figcaption></figure><figure><img src="../images/photos/daisy.jpg" alt="דייזי, רובוט אפור בעל ארבע רגליים, עומד על דשא" loading="lazy"><figcaption>דייזי, במעבדה של פרופ׳ שרנא</figcaption></figure></div>
-        <p class="members" data-slugs="gal-kaminka,noa-agmon,david-sarne"></p>
+      <article class="lab" id="ai"><h3>בינה מלאכותית</h3>
+        <p>התחום הרחב ביותר במחלקה, שכולל מערכות מרובות סוכנים ותכנון, רובוטיקה, למידת מכונה ועיבוד שפה טבעית. רבים מחברי הסגל עובדים בכמה מהם.</p>
+        <div class="sublab" id="multi-agent"><h4>מערכות מרובות סוכנים ותכנון</h4>
+          <p>קבוצת הבינה המלאכותית הגדולה בישראל, המוכרת בעולם בזכות שני עשורים של הישגים, עם 11 חברי סגל בכיר ועשרות סטודנטים לתארים מתקדמים, פוסט־דוקטורנטים ומהנדסים.</p>
+          <ul class="kv">
+            <li><b>מעבדת AIM</b><span>קראוס עוסקת במשא ומתן, בתכנון שיתופי ובאינטראקציה בין אדם לסוכן, ובהם מטפלים וירטואליים, אימון לחקירות עבור רשויות אכיפת החוק ומערכות ייעוץ לנהגים.</span></li>
+            <li><b>סוכני מידע נבונים</b><span>שרנא חוקר כיצד מתווכי מידע מעצבים סביבות מרובות סוכנים, ואיך לתת לאנשים עצות נבונות. <a class="inline" href="https://sarnelab.com/" target="_blank" rel="noopener">אתר המעבדה ↗</a></span></li>
+            <li><b>עבודת צוות</b><span>קמינקא חוקר עבודת צוות כמנגנונים כלליים שאפשר להפוך לאוטומטיים, וכן זיהוי תוכניות ומטרות, והקים את סדנת ARMS בכנס AAMAS.</span></li>
+            <li><b>תכנון אוטומטי</b><span>שלייפמן מפתח אלגוריתמים שבוחרים את רצף הפעולות הטוב ביותר תחת אילוצים רבים שמשתנים לעתים קרובות, כמו לוח הזמנים של תרופות למטופל.</span></li>
+          </ul>
+        </div>
+        <div class="sublab" id="robotics"><h4>רובוטיקה: קונסורציום הרובוטיקה של בר־אילן</h4>
+          <p>מקבוצות המחקר הגדולות בישראל במדעי המחשב. הקבוצה חוקרת טכנולוגיות רובוטיות למשימות תעשייתיות וחברתיות, ובהן רובוטיקה לאבטחה, מערכות מרובות רובוטים, נחילי רובוטים, מידול קוגניטיבי וכדורגל רובוטים (RoboCup), ועובדת בשיתוף הדוק עם הממשלה והתעשייה כדי להטמיע אותן. אגמון חוקרת התנהגות אסטרטגית של רובוטים בסביבות עוינות. ראו גם את <a class="inline" href="#/news/robots">פרויקט כלב הנחייה הרובוטי</a>. <a class="inline" href="https://u.cs.biu.ac.il/~kaminkg/" target="_blank" rel="noopener">אתר הקונסורציום ↗</a></p>
+          <div class="pair"><figure><img src="../images/photos/golda.jpg" alt="גולדה, רובוט Spot צהוב של Boston Dynamics" loading="lazy"><figcaption>גולדה, רובוט Spot של Boston Dynamics</figcaption></figure><figure><img src="../images/photos/daisy.jpg" alt="דייזי, רובוט אפור בעל ארבע רגליים, עומד על דשא" loading="lazy"><figcaption>דייזי, במעבדה של פרופ׳ שרנא</figcaption></figure></div>
+        </div>
+        <div class="sublab" id="ml"><h4>למידת מכונה</h4>
+          <ul class="kv">
+            <li><b>המעבדה למערכות לומדות</b><span>בני אדם לומדים מדוגמאות מעטות ומכלילים למצבים חדשים. המעבדה של צ׳צ׳יק מפתחת אלגוריתמים שמייצגים צלילים ותמונות באופן משמעותי, כדי שמכונות יוכלו להסיק מסקנות על סצנות מורכבות ממעט דוגמאות. <a class="inline" href="https://chechiklab.biu.ac.il/" target="_blank" rel="noopener">אתר המעבדה ↗</a></span></li>
+            <li><b>תאוריה של למידה עמוקה</b><span>רזין חוקר את היסודות התאורטיים של למידה עמוקה.</span></li>
+            <li><b>למידת ייצוגים</b><span>שחם מלמד מערכות לזהות את מה שחשוב בנתונים מורכבים, ועוסק גם בהסקה סיבתית.</span></li>
+            <li><b>מודלים רב־מודליים וגנרטיביים</b><span>שוורץ עוסק במודלים שמשלבים תמונות וטקסט, במודלי שפה גדולים, ובדרכים להסביר אותם ולשלוט בהם.</span></li>
+            <li><b>פרטיות</b><span>צפדיה מפתח פרטיות דיפרנציאלית, שמאפשרת למערכות ללמוד מנתונים רגישים עם גבולות מוכחים על המידע שדולף מהם.</span></li>
+          </ul>
+        </div>
+        <div class="sublab" id="nlp"><h4>עיבוד שפה טבעית</h4>
+          <p>המעבדה לעיבוד שפה טבעית משלבת אלגוריתמים מתקדמים עם ידע בלשני כדי שמחשבים יוכלו לנתח ולהבין טקסט. המעבדה הציגה את פרדיגמת הגרירה הטקסטואלית (Textual Entailment). בר־אילן מדורגת במקום הראשון בישראל בעיבוד שפה טבעית לפי CSRankings (1986–2026).</p>
+          <ul class="kv">
+            <li><b>הסקה סמנטית</b><span>דגן עוסק בגרירה טקסטואלית, בהסקה סמנטית ובייצוג ידע פתוח המבוסס על מבנים של שפה טבעית.</span></li>
+            <li><b>מודלי שפה</b><span>גולדברג עוסק בלמידה עמוקה לשפה, בניתוח תחבירי ובתרגום מכונה. אלעזר חוקר את הפרשנות, ייחוס הנתונים והאמינות של מודלי שפה.</span></li>
+            <li><b>עברית</b><span>צרפתי עוסקת בעיבוד עברית ושפות אחרות עשירות מורפולוגית, ובתכנות בשפה טבעית.</span></li>
+            <li><b>עיבוד שפה יישומי</b><span>גליקמן מחלץ ידע מובנה מטקסט חופשי, לשימושים כמו קיימות וסביבה.</span></li>
+          </ul>
+        </div>
+        <p class="members" data-in-areas="AI,ML,NLP,Robotics"></p>
       </article>
-      <article class="lab" id="nlp"><h3>המעבדה לעיבוד שפה טבעית</h3>
-        <p>משלבת אלגוריתמים מתקדמים עם ידע בלשני כדי שמחשבים יוכלו לנתח ולהבין טקסט. המעבדה הציגה את פרדיגמת הגרירה הטקסטואלית (Textual Entailment). עבודתה נעה מהסקה סמנטית וייצוג ידע פתוח המבוסס על מבנים של שפה טבעית, ועד אבני בניין יסודיות כמו ניתוח תחבירי, ייצוגי מילים והכללה בין שפות. בר־אילן מדורגת במקום הראשון בישראל בעיבוד שפה טבעית לפי CSRankings (1986–2026).</p>
-        <p class="members" data-slugs="ido-dagan,yoav-goldberg,reut-tsarfaty"></p>
+      <article class="lab" id="crypto"><h3>קריפטוגרפיה וסייבר</h3>
+        <p>כאן פועל המרכז לחקר קריפטוגרפיה יישומית וסייבר של בר־אילן. בר־אילן מדורגת במקום הראשון בישראל באבטחת מחשבים לפי CSRankings. <a class="inline" href="https://sites.biu.ac.il/en/biu-cyber-center" target="_blank" rel="noopener">אתר המרכז ↗</a></p>
+        <ul class="kv">
+          <li><b>חישוב מאובטח</b><span>לינדל, אשרוב ונוף בונים פרוטוקולים שמאפשרים לכמה גורמים לחשב על הנתונים המשותפים שלהם בלי לחשוף אותם, למשל בתי חולים שמצליבים רשומות מטופלים. אשרוב עוסק גם בבלוקצ׳יין.</span></li>
+          <li><b>מערכות הוכחה</b><span>יוגב מפתח הוכחות באפס ידיעה ופרוטוקולים נוספים שמאמתים חישוב בלי לחשוף את הנתונים שלו.</span></li>
+          <li><b>פרטיות</b><span>פינקס עוסק באבטחת מחשבים ובתקשורת פרטית. צפדיה מפתח פרטיות דיפרנציאלית.</span></li>
+        </ul>
+        <p class="members" data-in-areas="Crypto"></p>
       </article>
-      <article class="lab" id="learning-systems"><h3>המעבדה למערכות לומדות</h3>
-        <p>בני אדם לומדים מדוגמאות מעטות ומכלילים למצבים חדשים. המעבדה מפתחת אלגוריתמים שמייצגים אותות מורכבים באופן משמעותי, ומלמדת מכונות להבין ולהסיק מסקנות על צלילים ותמונות, במיוחד בסצנות מורכבות ועם מעט דוגמאות. <a class="inline" href="https://chechiklab.biu.ac.il/" target="_blank" rel="noopener">אתר המעבדה ↗</a></p>
-        <p class="members" data-slugs="gal-chechik"></p>
+      <article class="lab" id="formal-methods"><h3>שיטות פורמליות ואימות</h3>
+        <p>כלים מתמטיים שמוכיחים שחומרה ותוכנה נכונות, ערובה שבדיקות לבדן אינן יכולות לתת. <a class="inline" href="https://sites.google.com/view/fm-biu/" target="_blank" rel="noopener">הרצאות הסמינר ↗</a></p>
+        <ul class="kv">
+          <li><b>אמינות תוכנה</b><span>פלד עוסק בנכונות של מערכות חומרה ותוכנה, בהוכחות אוטומטיות, בלוגיקה ובשפות פורמליות.</span></li>
+          <li><b>הסקה אוטומטית ו־SMT</b><span>זהר מפתח פותרני ספיקות מודולו תאוריות (SMT), כלים שחברות טכנולוגיה מובילות משתמשות בהם כדי לבדוק את התוכנה שלהן.</span></li>
+          <li><b>לוגיקות טמפורליות</b><span>פרנקל עוסקת בלוגיקות טמפורליות ובאוטומטים, ובאימות לאבטחה, לידע ולסיבתיות.</span></li>
+        </ul>
+        <p class="members" data-in-areas="Verification"></p>
       </article>
-      <article class="lab" id="crypto"><h3>המרכז לחקר קריפטוגרפיה יישומית וסייבר של בר־אילן</h3>
-        <p>מחקר בפרוטוקולים קריפטוגרפיים, בחישוב מאובטח, בפרטיות ובאבטחה. בר־אילן מדורגת במקום הראשון בישראל באבטחת מחשבים לפי CSRankings. <a class="inline" href="https://sites.biu.ac.il/en/biu-cyber-center" target="_blank" rel="noopener">אתר המרכז ↗</a></p>
-        <p class="members" data-slugs="yehuda-lindell,benny-pinkas,gilad-asharov,ariel-nof,eylon-yogev,eliad-tsfadia"></p>
-      </article>
-      <article class="lab" id="formal-methods"><h3>הקבוצה לשיטות פורמליות</h3>
-        <p>אימות חומרה ותוכנה, הסקה אוטומטית וספיקות מודולו תאוריות. <a class="inline" href="https://sites.google.com/view/fm-biu/" target="_blank" rel="noopener">הרצאות הסמינר ↗</a></p>
-        <p class="members" data-slugs="doron-peled,yoni-zohar,hadar-frenkel"></p>
+      <article class="lab" id="data"><h3>נתונים ואחזור מידע</h3>
+        <p>הפיכת נתונים רבים ורועשים ממקורות שונים לידע שאנשים יכולים למצוא ולסמוך עליו.</p>
+        <ul class="kv">
+          <li><b>ניהול נתונים</b><span>אמסטרדמר בונה מערכות לניהול ביג דאטה בענן ובעזרת מיקור המונים, למשימות כמו גילוי ידע, בדיקת עובדות ומעקב אחר זכויות שימוש בנתונים.</span></li>
+          <li><b>אחזור מידע לבריאות</b><span>יום טוב משתמש באחזור מידע ובמדע הנתונים על נתונים מהאינטרנט כדי לשפר את הרפואה, ומכוון אנשים לבריאות טובה יותר בהתערבויות מותאמות אישית.</span></li>
+          <li><b>מדע נתונים יישומי</b><span>גליקמן מיישם עיבוד שפה ומדע נתונים בחקלאות, בפיננסים ובסביבה.</span></li>
+        </ul>
+        <p class="members" data-in-areas="Data" data-slugs="shmuel-tomi-klein"></p>
       </article>
       <article class="lab" id="bioinformatics"><h3>ביואינפורמטיקה</h3>
-        <p>המפגש בין מערכות ביולוגיות למדעי המחשב ולמתמטיקה. המעבדה חוקרת את המידע ברצפי DNA,‏ RNA וחלבונים, מודלים מתמטיים של מערכות ביולוגיות ונתונים גנומיים ורפואיים בקנה מידה גדול. <a class="inline" href="https://sites.biu.ac.il/en/yaron-orenstein" target="_blank" rel="noopener">אתר המעבדה ↗</a></p>
-        <p class="members" data-slugs="yaron-orenstein"></p>
-      </article>
-      <article class="lab" id="iia"><h3>סוכני מידע נבונים</h3>
-        <p>תפקידו של המידע במערכות מרובות סוכנים ובאינטראקציה בין אדם לסוכן. <a class="inline" href="https://sarnelab.com/" target="_blank" rel="noopener">אתר המעבדה ↗</a></p>
-        <p class="members" data-slugs="david-sarne"></p>
+        <p>המפגש בין מערכות ביולוגיות למדעי המחשב ולמתמטיקה. ריצוף גנטי מייצר כמויות עצומות של נתונים על DNA,‏ RNA וחלבונים. המעבדה של אורנשטיין מפתחת שיטות חישוביות, ובהן רשתות נוירונים, שמוצאות בנתונים האלה דפוסים של בקרת גנים, קיפול חלבונים ומחלות. <a class="inline" href="https://sites.biu.ac.il/en/yaron-orenstein" target="_blank" rel="noopener">אתר המעבדה ↗</a></p>
+        <p class="members" data-in-areas="Bioinformatics"></p>
       </article>
     </section>
     <section><h2 id="colloquium">הקולוקוויום המחלקתי</h2>
@@ -1654,17 +1690,18 @@ blockquote.pull{border-left:0;border-right:3px solid var(--accent);padding:4px 2
 <script>
 const FACULTY=JSON.parse(document.getElementById('faculty-data').textContent);
 /* The department's research areas. This list is the single source for the home page
-   cards, the Research page and the faculty directory filters, so they cannot drift apart. */
+   cards, the Research page and the faculty directory filters, so they cannot drift apart.
+   `lab` is the anchor of the area's section under Labs & groups. */
 const AREAS=[
-  {k:'Theory',n:'אלגוריתמים ותאוריה',i:'i-graph',d:'התאמת תבניות, אלגוריתמים דינמיים ואלגוריתמים לגרפים, גאומטריה, סיבוכיות.',labs:['algorithms']},
-  {k:'AI',n:'בינה מלאכותית',i:'i-spark',d:'מערכות מרובות סוכנים, תכנון, משא ומתן ואינטראקציה בין אדם לסוכן.',labs:['multi-agent','iia']},
-  {k:'ML',n:'למידת מכונה',i:'i-chart',d:'תאוריה של למידה עמוקה, למידת ייצוגים, הכללה מדוגמאות מעטות.',labs:['learning-systems']},
-  {k:'NLP',n:'עיבוד שפה טבעית',i:'i-chat',d:'מודלי שפה, פרשנות מודלים, עברית ושפות עשירות מורפולוגית.',labs:['nlp']},
-  {k:'Robotics',n:'רובוטיקה',i:'i-robot',d:'מערכות מרובות רובוטים, נחילים ורובוטים מסייעים, כמו כלב נחייה רובוטי.',labs:['robotics','multi-agent']},
-  {k:'Crypto',n:'קריפטוגרפיה וסייבר',i:'i-lock',d:'חישוב מאובטח, פרוטוקולים, פרטיות.',labs:['crypto']},
-  {k:'Verification',n:'שיטות פורמליות ואימות',i:'i-book',d:'אימות חומרה ותוכנה, הסקה אוטומטית, SMT.',labs:['formal-methods']},
-  {k:'Data',n:'נתונים ואחזור מידע',i:'i-layers',d:'ניהול נתונים בענן, מיקור המונים ואחזור מידע.',labs:[]},
-  {k:'Bioinformatics',n:'ביואינפורמטיקה',i:'i-ai',d:'רצפים ביולוגיים, ביולוגיה מתמטית, ביג דאטה גנומי.',labs:['bioinformatics']},
+  {k:'Theory',n:'אלגוריתמים ותאוריה',i:'i-graph',d:'התאמת תבניות, אלגוריתמים דינמיים ואלגוריתמים לגרפים, גאומטריה, סיבוכיות.',lab:'theory'},
+  {k:'AI',n:'בינה מלאכותית',i:'i-spark',d:'מערכות מרובות סוכנים, תכנון, משא ומתן ואינטראקציה בין אדם לסוכן.',lab:'ai'},
+  {k:'ML',n:'למידת מכונה',i:'i-chart',d:'תאוריה של למידה עמוקה, למידת ייצוגים, הכללה מדוגמאות מעטות.',lab:'ml'},
+  {k:'NLP',n:'עיבוד שפה טבעית',i:'i-chat',d:'מודלי שפה, פרשנות מודלים, עברית ושפות עשירות מורפולוגית.',lab:'nlp'},
+  {k:'Robotics',n:'רובוטיקה',i:'i-robot',d:'מערכות מרובות רובוטים, נחילים ורובוטים מסייעים, כמו כלב נחייה רובוטי.',lab:'robotics'},
+  {k:'Crypto',n:'קריפטוגרפיה וסייבר',i:'i-lock',d:'חישוב מאובטח, פרוטוקולים, פרטיות.',lab:'crypto'},
+  {k:'Verification',n:'שיטות פורמליות ואימות',i:'i-book',d:'אימות חומרה ותוכנה, הסקה אוטומטית, SMT.',lab:'formal-methods'},
+  {k:'Data',n:'נתונים ואחזור מידע',i:'i-layers',d:'ניהול נתונים בענן, מיקור המונים ואחזור מידע.',lab:'data'},
+  {k:'Bioinformatics',n:'ביואינפורמטיקה',i:'i-ai',d:'רצפים ביולוגיים, ביולוגיה מתמטית, ביג דאטה גנומי.',lab:'bioinformatics'},
 ];
 const AREA=Object.fromEntries(AREAS.map(a=>[a.k,a.n]));
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
@@ -1770,14 +1807,16 @@ function renderPage(tplId,base){
   views.page.replaceChildren(tpl.content.cloneNode(true));
   views.page.querySelectorAll('.members').forEach(el=>{
     const withRoles=el.dataset.roles;if(withRoles)el.classList.add('roles');
-    el.innerHTML=el.dataset.slugs.split(',').map(s=>bySlug[s]).filter(Boolean).map(p=>
+    // data-in-areas lists everyone active in those areas; data-slugs adds named people (e.g. emeriti) after them.
+    const inAreas=el.dataset.inAreas?.split(',')||[];
+    const slugs=[...active.filter(p=>p.areas.some(a=>inAreas.includes(a))).map(p=>p.slug),...(el.dataset.slugs?.split(',')||[])];
+    el.innerHTML=[...new Set(slugs)].map(s=>bySlug[s]).filter(Boolean).map(p=>
       `<a href="#/faculty/${p.slug}">${avatar(p)}<span>${esc(fullName(p))}${withRoles?`<small>${esc(p.role)}</small>`:''}</span></a>`).join('');
   });
-  const labNames=Object.fromEntries([...views.page.querySelectorAll('.lab')].map(l=>[l.id,l.querySelector('h3').textContent]));
   views.page.querySelectorAll('[data-areas]').forEach(el=>{
     el.innerHTML=`<ul class="kv">`+AREAS.map(a=>{
-      const labs=a.labs.filter(l=>labNames[l]).map(l=>`<a class="inline" href="#/research/${l}">${esc(labNames[l])}</a>`);
-      return `<li><b><a class="inline" href="#/faculty?area=${a.k}">${esc(a.n)}</a></b><span>${esc(a.d)} <span class="muted">${areaCount(a.k)} חברי סגל${labs.length?` · מעבדות: ${labs.join(', ')}`:''}</span></span></li>`;
+      const more=views.page.querySelector('#'+a.lab)?` · <a class="inline" href="#/research/${a.lab}">עוד במעבדות וקבוצות</a>`:'';
+      return `<li><b><a class="inline" href="#/faculty?area=${a.k}">${esc(a.n)}</a></b><span>${esc(a.d)} <span class="muted">${areaCount(a.k)} חברי סגל${more}</span></span></li>`;
     }).join('')+`</ul>`;
   });
   const toc=views.page.querySelector('.toc');
