@@ -326,6 +326,8 @@ blockquote.pull p{font:500 19px/1.45 var(--display);letter-spacing:-.005em}
 blockquote.pull footer{font-size:14px;color:var(--muted)}
 .lab{display:grid;gap:12px;padding:20px 22px;border:1px solid var(--rule);border-radius:12px;background:var(--surface)}
 .lab h3{margin-top:0;font-size:20px}
+.sublab{display:grid;gap:12px;scroll-margin-top:90px}
+.sublab h4{font:600 16px var(--body);margin:10px 0 0}
 .members{display:flex;flex-wrap:wrap;gap:8px}
 .members a{display:inline-flex;align-items:center;gap:8px;padding:4px 12px 4px 4px;border:1px solid var(--rule);border-radius:999px;background:var(--surface);font-size:13.5px;font-weight:500}
 .members a:hover{border-color:var(--accent);color:var(--accent)}
@@ -1210,59 +1212,93 @@ h3.with-face img{width:44px;height:44px;border-radius:50%;object-fit:cover;flex:
 
 <!-- ================= RESEARCH ================= -->
 <template id="tpl-research">
-<div class="wrap page" data-reviewed="2026-09-17">
+<div class="wrap page" data-reviewed="2026-09-19">
   <nav class="crumbs" aria-label="Breadcrumb"><a href="#/">Home</a><span>/</span><span aria-current="page">Research</span></nav>
   <div class="page-head"><div><span class="label">Research</span><h1>Research</h1><p>Home to the largest AI group in Israel, a pattern-matching group with decades of results, and top-ranked work in NLP and security.</p></div></div>
   <figure class="banner"><img src="images/photos/colloquium.jpg" alt="A packed lecture hall during a department event" loading="lazy"></figure>
   <div class="doc"><aside class="toc"></aside><div class="doc-body">
     <section><h2 id="areas">Research areas</h2>
-      <p class="muted">Each area links to the faculty working in it. Labs and groups are listed below.</p>
+      <p class="muted">Each area links to the faculty working in it. Labs &amp; groups below describes each one in more depth.</p>
       <div data-areas></div>
     </section>
     <section><h2 id="labs">Labs &amp; groups</h2>
-      <article class="lab" id="algorithms"><h3>Algorithms &amp; Pattern Matching</h3>
-        <p>Pattern matching gave computer science some of its most venerable algorithms (Knuth-Morris-Pratt) and data structures (tries, suffix trees), and grew into fields of its own such as computational biology. Our group has been at the forefront for decades. We advanced multidimensional matching, pioneered compressed matching, introduced the recovery model and developed streaming pattern matching. Today we work on matching over dynamically changing text. The group has produced more than 25 Ph.D. graduates.</p>
-        <p class="members" data-slugs="amihood-amir,yonatan-aumann,shmuel-tomi-klein,liam-roditty,avinatan-hassidim,ely-porat,tsvi-kopelowitz,moshe-lewenstein,esther-ezra"></p>
-      </article>
-      <article class="lab" id="multi-agent"><h3>Multi-Agent &amp; Multi-Robot Systems</h3>
-        <p>The largest artificial intelligence group in Israel, known worldwide for two decades of results, with 11 senior faculty and dozens of graduate students, postdocs and engineers.</p>
+      <p class="muted">The areas above, in more depth. Machine learning, natural language processing and robotics are grouped under artificial intelligence.</p>
+      <article class="lab" id="theory"><h3>Algorithms &amp; Theory</h3>
+        <p>One of the department’s oldest and largest groups. It designs efficient algorithms and data structures, and studies the mathematical limits of computation.</p>
         <ul class="kv">
-          <li><b>Multi-robot systems</b><span>Agmon studies robots’ strategic behavior in adversarial environments. Kaminka studies teamwork as automatable general mechanisms, and founded the ARMS workshop at AAMAS.</span></li>
-          <li><b>Fair division</b><span>Aumann and colleagues extended “cake cutting” to two dimensions, producing the first effective protocols for fairly dividing land.</span></li>
-          <li><b>AIM lab</b><span>Kraus works on negotiation, collaborative planning and human–agent interaction, including virtual therapists, interview training for law enforcement and advice systems for drivers.</span></li>
-          <li><b>Market design</b><span>Hassidim builds algorithmic mechanisms used in real markets: medical internship matching, psychology admissions and national school choice.</span></li>
-          <li><b>Information &amp; advice</b><span>Sarne studies how information intermediaries shape multi-agent settings, and how to give people intelligent advice.</span></li>
+          <li><b>Pattern matching</b><span>Pattern matching gave computer science some of its most venerable algorithms (Knuth-Morris-Pratt) and data structures (tries, suffix trees). Our group has been at the forefront for decades: it advanced multidimensional matching, pioneered compressed matching, introduced the recovery model and developed streaming pattern matching. Today it works on matching over dynamically changing text, and it has produced more than 25 Ph.D. graduates.</span></li>
+          <li><b>Dynamic &amp; graph algorithms</b><span>Roditty and Lewenstein design algorithms and data structures that stay fast as graphs and inputs change. Eden develops sublinear algorithms and property testing, which answer questions about huge graphs by reading only a small part of them.</span></li>
+          <li><b>Geometry</b><span>Ezra works on computational and discrete geometry, geometric approximation and discrepancy. Filtser studies metric spaces and geometric data summarization.</span></li>
+          <li><b>Complexity &amp; codes</b><span>Kaufman studies high-dimensional expanders and error-correcting codes. Porat works on algorithm analysis and computational complexity.</span></li>
+          <li><b>Algorithmic game theory</b><span>Aumann and colleagues extended “cake cutting” to two dimensions, producing the first effective protocols for fairly dividing land. Hassidim builds algorithmic mechanisms used in real markets: medical internship matching, psychology admissions and national school choice.</span></li>
         </ul>
-        <p class="members" data-slugs="sarit-kraus,gal-kaminka,noa-agmon,david-sarne,yonatan-aumann,avinatan-hassidim"></p>
+        <p class="members" data-in-areas="Theory" data-slugs="amihood-amir,shmuel-tomi-klein"></p>
       </article>
-      <article class="lab" id="robotics"><h3>Bar-Ilan Robotics Consortium</h3>
-        <p>One of Israel’s largest computer science research groups. It researches robotic technologies for industrial and social tasks, including security robotics, multi-robot systems, cognitive modeling and RoboCup soccer, and works closely with government and industry to deploy them. See also <a class="inline" href="#/news/robots">the robotic guide dog project</a>. <a class="inline" href="https://u.cs.biu.ac.il/~kaminkg/" target="_blank" rel="noopener">Consortium website ↗</a></p>
-        <div class="pair"><figure><img src="images/photos/golda.jpg" alt="Golda, a yellow Boston Dynamics Spot robot" loading="lazy"><figcaption>Golda, a Boston Dynamics Spot robot</figcaption></figure><figure><img src="images/photos/daisy.jpg" alt="Daisy, a grey quadruped robot, standing on grass" loading="lazy"><figcaption>Daisy, in Prof. Sarne’s lab</figcaption></figure></div>
-        <p class="members" data-slugs="gal-kaminka,noa-agmon,david-sarne"></p>
+      <article class="lab" id="ai"><h3>Artificial Intelligence</h3>
+        <p>The department’s widest area, covering multi-agent systems and planning, robotics, machine learning and natural language processing. Many faculty members work across these fields.</p>
+        <div class="sublab" id="multi-agent"><h4>Multi-agent systems &amp; planning</h4>
+          <p>The largest artificial intelligence group in Israel, known worldwide for two decades of results, with 11 senior faculty and dozens of graduate students, postdocs and engineers.</p>
+          <ul class="kv">
+            <li><b>AIM lab</b><span>Kraus works on negotiation, collaborative planning and human–agent interaction, including virtual therapists, interview training for law enforcement and advice systems for drivers.</span></li>
+            <li><b>Intelligent Information Agents</b><span>Sarne studies how information intermediaries shape multi-agent settings, and how to give people intelligent advice. <a class="inline" href="https://sarnelab.com/" target="_blank" rel="noopener">Lab website ↗</a></span></li>
+            <li><b>Teamwork</b><span>Kaminka studies teamwork as automatable general mechanisms, as well as plan and goal recognition, and founded the ARMS workshop at AAMAS.</span></li>
+            <li><b>Automated planning</b><span>Shleyfman develops algorithms that choose the best sequence of actions under many, often changing, constraints, such as a patient’s medication schedule.</span></li>
+          </ul>
+        </div>
+        <div class="sublab" id="robotics"><h4>Robotics: the Bar-Ilan Robotics Consortium</h4>
+          <p>One of Israel’s largest computer science research groups. It researches robotic technologies for industrial and social tasks, including security robotics, multi-robot systems, robot swarms, cognitive modeling and RoboCup soccer, and works closely with government and industry to deploy them. Agmon studies robots’ strategic behavior in adversarial environments. See also <a class="inline" href="#/news/robots">the robotic guide dog project</a>. <a class="inline" href="https://u.cs.biu.ac.il/~kaminkg/" target="_blank" rel="noopener">Consortium website ↗</a></p>
+          <div class="pair"><figure><img src="images/photos/golda.jpg" alt="Golda, a yellow Boston Dynamics Spot robot" loading="lazy"><figcaption>Golda, a Boston Dynamics Spot robot</figcaption></figure><figure><img src="images/photos/daisy.jpg" alt="Daisy, a grey quadruped robot, standing on grass" loading="lazy"><figcaption>Daisy, in Prof. Sarne’s lab</figcaption></figure></div>
+        </div>
+        <div class="sublab" id="ml"><h4>Machine learning</h4>
+          <ul class="kv">
+            <li><b>Learning Systems Lab</b><span>People learn from few examples and generalize to new situations. Chechik’s lab develops algorithms that represent sounds and images meaningfully, so machines can reason about complex scenes from few samples. <a class="inline" href="https://chechiklab.biu.ac.il/" target="_blank" rel="noopener">Lab website ↗</a></span></li>
+            <li><b>Deep learning theory</b><span>Razin studies the theoretical foundations of deep learning.</span></li>
+            <li><b>Representation learning</b><span>Shaham teaches systems to find what matters in complex data, and works on causal inference.</span></li>
+            <li><b>Multimodal &amp; generative models</b><span>Schwartz works on models that combine images and text, large language models, and how to explain and control them.</span></li>
+            <li><b>Privacy</b><span>Tsfadia develops differential privacy, which lets systems learn from sensitive data with provable limits on what they leak.</span></li>
+          </ul>
+        </div>
+        <div class="sublab" id="nlp"><h4>Natural language processing</h4>
+          <p>The NLP lab combines advanced algorithms with linguistic knowledge so computers can analyze and understand text. It introduced the Textual Entailment paradigm. Bar-Ilan ranks first in Israel in NLP on CSRankings (1986–2026).</p>
+          <ul class="kv">
+            <li><b>Semantic inference</b><span>Dagan works on textual entailment, semantic inference and open knowledge representation built on natural-language structures.</span></li>
+            <li><b>Language models</b><span>Goldberg works on deep learning for language, syntactic parsing and machine translation. Elazar studies the interpretability, data attribution and reliability of language models.</span></li>
+            <li><b>Hebrew</b><span>Tsarfaty works on Hebrew NLP and other morphologically rich languages, and on natural language programming.</span></li>
+            <li><b>Applied NLP</b><span>Glikman extracts structured knowledge from free text, for uses such as sustainability and the environment.</span></li>
+          </ul>
+        </div>
+        <p class="members" data-in-areas="AI,ML,NLP,Robotics"></p>
       </article>
-      <article class="lab" id="nlp"><h3>Natural Language Processing Lab</h3>
-        <p>Combines advanced algorithms with linguistic knowledge so computers can analyze and understand text. The lab introduced the Textual Entailment paradigm. Its work ranges from semantic inference and open knowledge representation built on natural-language structures, to core building blocks such as syntactic parsing, word representations and cross-lingual generalization. Bar-Ilan ranks first in Israel in NLP on CSRankings (1986–2026).</p>
-        <p class="members" data-slugs="ido-dagan,yoav-goldberg,reut-tsarfaty"></p>
+      <article class="lab" id="crypto"><h3>Cryptography &amp; Cyber Security</h3>
+        <p>Home to the BIU Center for Research in Applied Cryptography and Cyber Security. Bar-Ilan ranks first in Israel in computer security on CSRankings. <a class="inline" href="https://sites.biu.ac.il/en/biu-cyber-center" target="_blank" rel="noopener">Center website ↗</a></p>
+        <ul class="kv">
+          <li><b>Secure computation</b><span>Lindell, Asharov and Nof build protocols that let several parties compute on their combined data without revealing it, for example hospitals comparing patient records. Asharov also works on blockchains.</span></li>
+          <li><b>Proof systems</b><span>Yogev develops zero-knowledge proofs and other protocols that verify a computation without exposing its data.</span></li>
+          <li><b>Privacy</b><span>Pinkas works on computer security and private communication. Tsfadia develops differential privacy.</span></li>
+        </ul>
+        <p class="members" data-in-areas="Crypto"></p>
       </article>
-      <article class="lab" id="learning-systems"><h3>Learning Systems Lab</h3>
-        <p>People learn from few examples and generalize to new situations. The lab develops algorithms that represent complex signals meaningfully, teaching machines to understand and reason about sounds and images, especially in complex scenes and with few samples. <a class="inline" href="https://chechiklab.biu.ac.il/" target="_blank" rel="noopener">Lab website ↗</a></p>
-        <p class="members" data-slugs="gal-chechik"></p>
+      <article class="lab" id="formal-methods"><h3>Formal Methods &amp; Verification</h3>
+        <p>Mathematical tools that prove hardware and software correct, a guarantee that testing alone cannot give. <a class="inline" href="https://sites.google.com/view/fm-biu/" target="_blank" rel="noopener">Seminar talks ↗</a></p>
+        <ul class="kv">
+          <li><b>Software reliability</b><span>Peled works on the correctness of hardware and software systems, automated proofs, logic and formal languages.</span></li>
+          <li><b>Automated reasoning &amp; SMT</b><span>Zohar develops satisfiability modulo theories (SMT) solvers, tools that leading tech companies use to check their software.</span></li>
+          <li><b>Temporal logics</b><span>Frenkel works on temporal logics and automata, and on verification for security, knowledge and causality.</span></li>
+        </ul>
+        <p class="members" data-in-areas="Verification"></p>
       </article>
-      <article class="lab" id="crypto"><h3>BIU Center for Research in Applied Cryptography &amp; Cyber Security</h3>
-        <p>Research in cryptographic protocols, secure computation, privacy and security. Bar-Ilan ranks first in Israel in computer security on CSRankings. <a class="inline" href="https://sites.biu.ac.il/en/biu-cyber-center" target="_blank" rel="noopener">Center website ↗</a></p>
-        <p class="members" data-slugs="yehuda-lindell,benny-pinkas,gilad-asharov,ariel-nof,eylon-yogev,eliad-tsfadia"></p>
-      </article>
-      <article class="lab" id="formal-methods"><h3>Formal Methods Group</h3>
-        <p>Verification of hardware and software, automated reasoning and satisfiability modulo theories. <a class="inline" href="https://sites.google.com/view/fm-biu/" target="_blank" rel="noopener">Seminar talks ↗</a></p>
-        <p class="members" data-slugs="doron-peled,yoni-zohar,hadar-frenkel"></p>
+      <article class="lab" id="data"><h3>Data &amp; Information Retrieval</h3>
+        <p>Turning large, noisy data from many sources into knowledge that people can find and trust.</p>
+        <ul class="kv">
+          <li><b>Data management</b><span>Amsterdamer builds systems for managing big data in the cloud and with crowdsourcing, for tasks such as knowledge discovery, fact-checking and tracking data usage rights.</span></li>
+          <li><b>Retrieval for health</b><span>Yom-Tov applies information retrieval and data science to internet data to improve medicine, and nudges people toward better health with personalized interventions.</span></li>
+          <li><b>Applied data science</b><span>Glikman applies NLP and data science to agritech, fintech and the environment.</span></li>
+        </ul>
+        <p class="members" data-in-areas="Data" data-slugs="shmuel-tomi-klein"></p>
       </article>
       <article class="lab" id="bioinformatics"><h3>Bioinformatics</h3>
-        <p>Where biological systems meet computer science and mathematics. The lab studies information in DNA, RNA and protein sequences, mathematical models of biological systems, and large-scale genomic and medical data. <a class="inline" href="https://sites.biu.ac.il/en/yaron-orenstein" target="_blank" rel="noopener">Lab website ↗</a></p>
-        <p class="members" data-slugs="yaron-orenstein"></p>
-      </article>
-      <article class="lab" id="iia"><h3>Intelligent Information Agents</h3>
-        <p>The role of information in multi-agent systems and in human–agent interaction. <a class="inline" href="https://sarnelab.com/" target="_blank" rel="noopener">Lab website ↗</a></p>
-        <p class="members" data-slugs="david-sarne"></p>
+        <p>Where biological systems meet computer science and mathematics. Genetic sequencing produces vast amounts of data on DNA, RNA and proteins. Orenstein’s lab develops computational methods, including neural networks, that find patterns in this data about gene regulation, protein folding and disease. <a class="inline" href="https://sites.biu.ac.il/en/yaron-orenstein" target="_blank" rel="noopener">Lab website ↗</a></p>
+        <p class="members" data-in-areas="Bioinformatics"></p>
       </article>
     </section>
     <section><h2 id="colloquium">Departmental colloquium</h2>
@@ -1629,17 +1665,18 @@ h3.with-face img{width:44px;height:44px;border-radius:50%;object-fit:cover;flex:
 <script>
 const FACULTY=JSON.parse(document.getElementById('faculty-data').textContent);
 /* The department's research areas. This list is the single source for the home page
-   cards, the Research page and the faculty directory filters, so they cannot drift apart. */
+   cards, the Research page and the faculty directory filters, so they cannot drift apart.
+   `lab` is the anchor of the area's section under Labs & groups. */
 const AREAS=[
-  {k:'Theory',n:'Algorithms & Theory',i:'i-graph',d:'Pattern matching, dynamic and graph algorithms, geometry, complexity.',labs:['algorithms']},
-  {k:'AI',n:'Artificial Intelligence',i:'i-spark',d:'Multi-agent systems, planning, negotiation and human–agent interaction.',labs:['multi-agent','iia']},
-  {k:'ML',n:'Machine Learning',i:'i-chart',d:'Deep learning theory, representation learning, few-shot generalization.',labs:['learning-systems']},
-  {k:'NLP',n:'Natural Language Processing',i:'i-chat',d:'Language models, interpretability, Hebrew and morphologically rich languages.',labs:['nlp']},
-  {k:'Robotics',n:'Robotics',i:'i-robot',d:'Multi-robot systems, swarms, and assistive robots such as a robotic guide dog.',labs:['robotics','multi-agent']},
-  {k:'Crypto',n:'Cryptography & Cyber Security',i:'i-lock',d:'Secure computation, protocols, privacy.',labs:['crypto']},
-  {k:'Verification',n:'Formal Methods & Verification',i:'i-book',d:'Verification of hardware and software, automated reasoning, SMT.',labs:['formal-methods']},
-  {k:'Data',n:'Data & Information Retrieval',i:'i-layers',d:'Data management in the cloud, crowdsourcing, information retrieval.',labs:[]},
-  {k:'Bioinformatics',n:'Bioinformatics',i:'i-ai',d:'Biological sequences, mathematical biology, genomic big data.',labs:['bioinformatics']},
+  {k:'Theory',n:'Algorithms & Theory',i:'i-graph',d:'Pattern matching, dynamic and graph algorithms, geometry, complexity.',lab:'theory'},
+  {k:'AI',n:'Artificial Intelligence',i:'i-spark',d:'Multi-agent systems, planning, negotiation and human–agent interaction.',lab:'ai'},
+  {k:'ML',n:'Machine Learning',i:'i-chart',d:'Deep learning theory, representation learning, few-shot generalization.',lab:'ml'},
+  {k:'NLP',n:'Natural Language Processing',i:'i-chat',d:'Language models, interpretability, Hebrew and morphologically rich languages.',lab:'nlp'},
+  {k:'Robotics',n:'Robotics',i:'i-robot',d:'Multi-robot systems, swarms, and assistive robots such as a robotic guide dog.',lab:'robotics'},
+  {k:'Crypto',n:'Cryptography & Cyber Security',i:'i-lock',d:'Secure computation, protocols, privacy.',lab:'crypto'},
+  {k:'Verification',n:'Formal Methods & Verification',i:'i-book',d:'Verification of hardware and software, automated reasoning, SMT.',lab:'formal-methods'},
+  {k:'Data',n:'Data & Information Retrieval',i:'i-layers',d:'Data management in the cloud, crowdsourcing, information retrieval.',lab:'data'},
+  {k:'Bioinformatics',n:'Bioinformatics',i:'i-ai',d:'Biological sequences, mathematical biology, genomic big data.',lab:'bioinformatics'},
 ];
 const AREA=Object.fromEntries(AREAS.map(a=>[a.k,a.n]));
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
@@ -1744,14 +1781,16 @@ function renderPage(tplId,base){
   views.page.replaceChildren(tpl.content.cloneNode(true));
   views.page.querySelectorAll('.members').forEach(el=>{
     const withRoles=el.dataset.roles;if(withRoles)el.classList.add('roles');
-    el.innerHTML=el.dataset.slugs.split(',').map(s=>bySlug[s]).filter(Boolean).map(p=>
+    // data-in-areas lists everyone active in those areas; data-slugs adds named people (e.g. emeriti) after them.
+    const inAreas=el.dataset.inAreas?.split(',')||[];
+    const slugs=[...active.filter(p=>p.areas.some(a=>inAreas.includes(a))).map(p=>p.slug),...(el.dataset.slugs?.split(',')||[])];
+    el.innerHTML=[...new Set(slugs)].map(s=>bySlug[s]).filter(Boolean).map(p=>
       `<a href="#/faculty/${p.slug}">${avatar(p)}<span>${esc(fullName(p))}${withRoles?`<small>${esc(p.role)}</small>`:''}</span></a>`).join('');
   });
-  const labNames=Object.fromEntries([...views.page.querySelectorAll('.lab')].map(l=>[l.id,l.querySelector('h3').textContent]));
   views.page.querySelectorAll('[data-areas]').forEach(el=>{
     el.innerHTML=`<ul class="kv">`+AREAS.map(a=>{
-      const labs=a.labs.filter(l=>labNames[l]).map(l=>`<a class="inline" href="#/research/${l}">${esc(labNames[l])}</a>`);
-      return `<li><b><a class="inline" href="#/faculty?area=${a.k}">${esc(a.n)}</a></b><span>${esc(a.d)} <span class="muted">${areaCount(a.k)} faculty members${labs.length?` · Labs: ${labs.join(', ')}`:''}</span></span></li>`;
+      const more=views.page.querySelector('#'+a.lab)?` · <a class="inline" href="#/research/${a.lab}">More on labs &amp; groups</a>`:'';
+      return `<li><b><a class="inline" href="#/faculty?area=${a.k}">${esc(a.n)}</a></b><span>${esc(a.d)} <span class="muted">${areaCount(a.k)} faculty members${more}</span></span></li>`;
     }).join('')+`</ul>`;
   });
   const toc=views.page.querySelector('.toc');
