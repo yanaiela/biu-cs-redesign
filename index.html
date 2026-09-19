@@ -47,13 +47,28 @@ p{margin:0}
 .more{font-weight:600;color:var(--accent);display:inline-flex;gap:6px;align-items:center}
 .more:hover{text-decoration:underline;text-underline-offset:3px}
 
+/* ---------- masthead (university banner, as on the original site) ---------- */
+.masthead{background:#004128;color:#F5FAF0}
+.masthead-bar{display:flex;align-items:center;gap:28px;min-height:96px;padding-block:14px}
+.masthead-logo{flex:none;border-radius:4px}
+.masthead-logo img{display:block;height:58px;width:auto}
+.masthead-title{flex:1;margin:0;text-align:center;font:600 25px/1.18 var(--display);letter-spacing:-.01em;color:#F5FAF0}
+.masthead-links{display:flex;align-items:center;gap:14px;margin-inline-start:auto}
+.masthead-links a{color:#F5FAF0;opacity:.85;display:inline-flex;align-items:center}
+.masthead-links a:hover{opacity:1}
+.masthead-links .ico{width:18px;height:18px}
+.masthead-uni{font-size:13.5px;font-weight:500;padding:4px 12px;border:1px solid rgba(245,250,240,.4);border-radius:999px;white-space:nowrap}
+.masthead a:focus-visible{outline-color:#F5FAF0}
+@media (max-width:1100px){.masthead-title{display:none}}
+@media (max-width:640px){.masthead-bar{min-height:68px;padding-block:10px}.masthead-logo img{height:42px}.masthead-links{display:none}}
+
 /* ---------- header ---------- */
 header{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--ground) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
 .bar{display:flex;align-items:center;gap:24px;height:64px}
 .brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:650;font-size:17px;line-height:1.1;white-space:nowrap}
 .mark{width:30px;height:30px;border-radius:7px;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font:600 12px var(--mono)}
 .brand small{display:block;font:400 11px var(--body);color:var(--muted);letter-spacing:0}
-nav.main{margin-inline-start:auto;display:flex;gap:2px}
+nav.main{margin-inline-start:-12px;display:flex;gap:2px}
 .nav-item{position:relative}
 .nav-item>a{display:block;padding:8px 12px;border-radius:6px;font-weight:500;font-size:15px}
 .nav-item:hover>a,.nav-item:focus-within>a{background:var(--accent-soft)}
@@ -63,12 +78,12 @@ nav.main{margin-inline-start:auto;display:flex;gap:2px}
 .drop a{padding:7px 10px;border-radius:6px;font-size:14px}
 .drop a:hover{background:var(--accent-soft)}
 .drop a span{display:block;font-size:12px;color:var(--muted)}
-.tools{display:flex;gap:8px;align-items:center}
+.tools{display:flex;gap:8px;align-items:center;margin-inline-start:auto}
 .icon-btn{border:1px solid var(--rule);background:var(--surface);color:var(--ink);height:36px;min-width:36px;padding:0 10px;border-radius:8px;font:500 13px var(--body);cursor:pointer;display:inline-flex;align-items:center;gap:6px}
 .menu-btn{display:none}
 .nav-lang{display:none;padding:12px 12px 4px;margin-top:4px;border-top:1px solid var(--rule);font-weight:500;font-size:15px}
 @media (max-width:920px){
-  nav.main{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:var(--surface);border-bottom:1px solid var(--rule);padding:8px 16px 16px;max-height:calc(100vh - 64px - env(safe-area-inset-top,0px));max-height:calc(100dvh - 64px - env(safe-area-inset-top,0px));overflow-y:auto;overscroll-behavior:contain}
+  nav.main{margin-inline-start:0;display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:var(--surface);border-bottom:1px solid var(--rule);padding:8px 16px 16px;max-height:calc(100vh - 64px - env(safe-area-inset-top,0px));max-height:calc(100dvh - 64px - env(safe-area-inset-top,0px));overflow-y:auto;overscroll-behavior:contain}
   nav.main.open{display:flex}
   .drop{position:static;display:grid;border:0;box-shadow:none;padding:0 0 8px 12px;margin:0;min-width:0;background:transparent}
   .drop a span{display:none}
@@ -429,11 +444,25 @@ h3.with-face img{width:44px;height:44px;border-radius:50%;object-fit:cover;flex:
   <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4V5z"/><path d="M8 9.5h8M8 12.5h5"/></symbol>
   <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 018 0v3M12 14.5v2.5"/></symbol>
   <symbol id="i-robot" viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="11" rx="3"/><path d="M12 8V4.5M9 13h.01M15 13h.01M9 16.5h6M2 12.5v3M22 12.5v3"/><circle cx="12" cy="3.5" r="1"/></symbol>
+  <symbol id="i-facebook" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M13.5 21v-7.2h2.4l.4-2.8h-2.8V9.2c0-.8.2-1.4 1.4-1.4h1.5V5.3c-.3 0-1.1-.1-2.1-.1-2.1 0-3.6 1.3-3.6 3.7v2.1H8.3v2.8h2.4V21z"/></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M6.9 8.6H4.1V20h2.8zM5.5 4a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2zM20 13.7c0-3.1-1.7-5.3-4.5-5.3-1.4 0-2.4.8-2.8 1.5V8.6H10V20h2.8v-5.9c0-1.5.6-2.8 2.2-2.8s2.2 1.2 2.2 2.9V20H20z"/></symbol>
+  <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4.5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17" cy="7" r=".7" fill="currentColor" stroke="none"/></symbol>
   <symbol id="i-graph" viewBox="0 0 24 24"><circle cx="5" cy="5" r="2"/><circle cx="19" cy="7" r="2"/><circle cx="7" cy="19" r="2"/><circle cx="18" cy="18" r="2"/><path d="M6.8 5.4l10.3 1.2M5.5 7l1.2 10M9 18.9l7-.8M18.8 9l-.6 7"/></symbol>
 </svg>
+<div class="masthead">
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo" href="#/"><img src="images/brand/biu-logo-en.png" alt="Department of Computer Science and Artificial Intelligence, Faculty of Exact Sciences, Bar-Ilan University — home" width="873" height="189"></a>
+    <p class="masthead-title" aria-hidden="true">Department of Computer Science<br>and Artificial Intelligence</p>
+    <div class="masthead-links">
+      <a href="https://www.facebook.com/cs.biu" target="_blank" rel="noopener" aria-label="Facebook"><svg class="ico" aria-hidden="true"><use href="#i-facebook"/></svg></a>
+      <a href="https://www.linkedin.com/company/cs-bar-ilan-univ/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="ico" aria-hidden="true"><use href="#i-linkedin"/></svg></a>
+      <a href="https://www.instagram.com/biu_cs/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ico" aria-hidden="true"><use href="#i-instagram"/></svg></a>
+      <a class="masthead-uni" href="https://biu.ac.il/en" target="_blank" rel="noopener">Bar-Ilan University ↗</a>
+    </div>
+  </div>
+</div>
 <header>
   <div class="wrap bar">
-    <a class="brand" href="#/"><span class="mark">CS</span><span>Computer Science &amp; AI<small>Bar-Ilan University</small></span></a>
     <nav class="main" id="nav" aria-label="Main">
       <div class="nav-item" data-section="study"><a href="#/study">Study</a>
         <div class="drop">
@@ -1783,7 +1812,10 @@ function route(){
 window.addEventListener('hashchange',route);route();
 
 const btn=document.getElementById('menu-btn'),nav=document.getElementById('nav');
-btn.addEventListener('click',()=>{const o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o);btn.textContent=o?'Close':'Menu'});
+// The banner above the header scrolls away, so the open menu gets whatever height is left below the header.
+const fitMenu=()=>{if(nav.classList.contains('open'))nav.style.maxHeight=`${Math.max(200,innerHeight-document.querySelector('header').getBoundingClientRect().bottom)}px`};
+addEventListener('scroll',fitMenu,{passive:true});addEventListener('resize',fitMenu);
+btn.addEventListener('click',()=>{const o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o);btn.textContent=o?'Close':'Menu';fitMenu()});
 const closeMenu=()=>{nav.classList.remove('open');btn.setAttribute('aria-expanded','false');btn.textContent='Menu'};
 nav.addEventListener('click',e=>{if(e.target.closest('a')){closeMenu();e.target.closest('a').blur()}});
 // A link to the hash we're already on fires no hashchange, so re-run the router (e.g. jump back to a TOC section).
