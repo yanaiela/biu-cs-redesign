@@ -268,9 +268,13 @@ dl.contact-list a{color:var(--accent)}
 .toc a.on{color:var(--ink);border-left-color:var(--accent);font-weight:500}
 .toc:empty{display:none}
 .reviewed{margin-top:8px;font-size:13px}
-.doc-body{max-width:760px;display:grid;gap:52px}
+.doc-body{max-width:760px;display:grid;gap:48px}
 .doc-body>section{display:grid;gap:14px;align-content:start}
+/* Top-level sections get a heavy rule, so they read as distinct parts of the
+   page; content nested inside them uses lighter rules. */
+.doc-body>section+section{padding-top:40px;border-top:2px solid var(--ink)}
 .doc-body h2{font-size:clamp(23px,2.6vw,28px);scroll-margin-top:90px}
+.doc-body>section>h2{font-size:clamp(26px,3vw,32px)}
 .doc-body h3{font-size:18px;margin-top:10px}
 .lab{scroll-margin-top:90px}
 .doc-body p{max-width:68ch}
@@ -320,8 +324,7 @@ table.data.compact td:first-child{color:var(--muted);width:24%}
 blockquote.pull{border-top:0;border-left:3px solid var(--accent);padding:4px 0 4px 20px;gap:8px}
 blockquote.pull p{font:500 19px/1.45 var(--display);letter-spacing:-.005em}
 blockquote.pull footer{font-size:14px;color:var(--muted)}
-.lab{display:grid;gap:12px;padding-block:24px;border-top:1px solid var(--rule)}
-.lab:first-of-type{border-top:0;padding-top:4px}
+.lab{display:grid;gap:12px;padding:20px 22px;border:1px solid var(--rule);border-radius:12px;background:var(--surface)}
 .lab h3{margin-top:0;font-size:20px}
 .members{display:flex;flex-wrap:wrap;gap:8px}
 .members a{display:inline-flex;align-items:center;gap:8px;padding:4px 12px 4px 4px;border:1px solid var(--rule);border-radius:999px;background:var(--surface);font-size:13.5px;font-weight:500}
