@@ -270,9 +270,13 @@ dl.contact-list a{color:var(--accent)}
 .toc a.on{color:var(--ink);border-left-color:var(--accent);font-weight:500}
 .toc:empty{display:none}
 .reviewed{margin-top:8px;font-size:13px}
-.doc-body{max-width:760px;display:grid;gap:52px}
+.doc-body{max-width:760px;display:grid;gap:48px}
 .doc-body>section{display:grid;gap:14px;align-content:start}
+/* Top-level sections get a heavy rule, so they read as distinct parts of the
+   page; content nested inside them uses lighter rules. */
+.doc-body>section+section{padding-top:40px;border-top:2px solid var(--ink)}
 .doc-body h2{font-size:clamp(23px,2.6vw,28px);scroll-margin-top:90px}
+.doc-body>section>h2{font-size:clamp(26px,3vw,32px)}
 .doc-body h3{font-size:18px;margin-top:10px}
 .lab{scroll-margin-top:90px}
 .doc-body p{max-width:68ch}
@@ -322,8 +326,7 @@ table.data.compact td:first-child{color:var(--muted);width:24%}
 blockquote.pull{border-top:0;border-left:3px solid var(--accent);padding:4px 0 4px 20px;gap:8px}
 blockquote.pull p{font:500 19px/1.45 var(--display);letter-spacing:-.005em}
 blockquote.pull footer{font-size:14px;color:var(--muted)}
-.lab{display:grid;gap:12px;padding-block:24px;border-top:1px solid var(--rule)}
-.lab:first-of-type{border-top:0;padding-top:4px}
+.lab{display:grid;gap:12px;padding:20px 22px;border:1px solid var(--rule);border-radius:12px;background:var(--surface)}
 .lab h3{margin-top:0;font-size:20px}
 .sublab{display:grid;gap:12px;scroll-margin-top:90px}
 .sublab h4{font:600 16px var(--body);margin:10px 0 0}
@@ -1250,7 +1253,7 @@ blockquote.pull{border-left:0;border-right:3px solid var(--accent);padding:4px 2
       <article class="lab" id="theory"><h3>אלגוריתמים ותאוריה</h3>
         <p>מהקבוצות הוותיקות והגדולות במחלקה. הקבוצה מתכננת אלגוריתמים ומבני נתונים יעילים, וחוקרת את הגבולות המתמטיים של החישוב.</p>
         <ul class="kv">
-          <li><b>התאמת תבניות</b><span>התאמת תבניות העניקה למדעי המחשב כמה מהאלגוריתמים הוותיקים שלהם (Knuth-Morris-Pratt) וממבני הנתונים שלהם (עצי trie ועצי סיומות). הקבוצה שלנו נמצאת בחזית התחום כבר עשרות שנים: היא קידמה התאמה רב־ממדית, הייתה חלוצה בהתאמה דחוסה, הציגה את מודל השחזור ופיתחה התאמת תבניות בזרם נתונים. היום היא עובדת על התאמה בטקסט שמשתנה באופן דינמי, ויצאו ממנה יותר מ־25 בוגרי דוקטורט.</span></li>
+          <li><b>התאמת תבניות</b><span>התאמת תבניות העניקה למדעי המחשב כמה מהאלגוריתמים הוותיקים שלהם (<bdi>Knuth-Morris-Pratt</bdi>) וממבני הנתונים שלהם (עצי trie ועצי סיומות). הקבוצה שלנו נמצאת בחזית התחום כבר עשרות שנים: היא קידמה התאמה רב־ממדית, הייתה חלוצה בהתאמה דחוסה, הציגה את מודל השחזור ופיתחה התאמת תבניות בזרם נתונים. היום היא עובדת על התאמה בטקסט שמשתנה באופן דינמי, ויצאו ממנה יותר מ־25 בוגרי דוקטורט.</span></li>
           <li><b>אלגוריתמים דינמיים ואלגוריתמים לגרפים</b><span>רודיטי ולוינשטיין מתכננים אלגוריתמים ומבני נתונים שנשארים מהירים כשהגרפים והקלט משתנים. עדן מפתחת אלגוריתמים תת־ליניאריים ובדיקת תכונות, שעונים על שאלות על גרפים ענקיים תוך קריאה של חלק קטן מהם בלבד.</span></li>
           <li><b>גאומטריה</b><span>עזרא עוסקת בגאומטריה חישובית ובדידה, באלגוריתמי קירוב גאומטריים ובאי־התאמה (discrepancy). פילצר חוקר מרחבים מטריים וסיכום גאומטרי של נתונים.</span></li>
           <li><b>סיבוכיות וקודים</b><span>קאופמן חוקרת מרחיבים רב־ממדיים וקודים לתיקון שגיאות. פורת עוסק בניתוח אלגוריתמים ובסיבוכיות חישובית.</span></li>
